@@ -13,7 +13,7 @@ const Content = ({ movies = [], details = [], lastMovie = false }) => {
         <div>
           <Typography component="p" variant="body2">Last Appear on</Typography>
         </div>
-        <Grid container>
+        <Grid container spacing={1}>
           {
             lastMovieSelector ? (
               <>
@@ -21,8 +21,6 @@ const Content = ({ movies = [], details = [], lastMovie = false }) => {
                   <Typography component="h5" variant="h5">
                     {lastMovieSelector.title}
                   </Typography>
-                </Grid>
-                <Grid item xs={12}>
                   <Typography component="p" variant="body1">
                     on {lastMovieSelector.release_date}
                   </Typography>
@@ -34,8 +32,6 @@ const Content = ({ movies = [], details = [], lastMovie = false }) => {
                   <Typography component="h3" variant="h3">
                     <Skeleton animation="wave" />
                   </Typography>
-                </Grid>
-                <Grid item xs={12}>
                   <Typography component="p" variant="body1">
                     <Skeleton animation="wave" />
                   </Typography>
@@ -55,6 +51,18 @@ const Content = ({ movies = [], details = [], lastMovie = false }) => {
         <Typography component="p" variant="body2">Movie List</Typography>
       </div>
       <Grid container spacing={1}>
+        {!movies.length && (
+          <>
+            <Grid item xs={12}>
+              <Typography component="h3" variant="h3">
+                <Skeleton animation="wave" />
+              </Typography>
+              <Typography component="p" variant="body1">
+                <Skeleton animation="wave" />
+              </Typography>
+            </Grid>
+          </>
+        )}
         {movies.map((movie, index) =>
           details[index] ? (
             <Grid item key={movie} xs={12}>
