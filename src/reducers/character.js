@@ -9,8 +9,6 @@ const initialState = {
 }
 
 export default function character(state = initialState, action) {
-  console.log("action", action);
-
   switch (action.type) {
     case CHARACTER:
       return produce(state, (draft) => {
@@ -24,7 +22,6 @@ export default function character(state = initialState, action) {
       });
     case MOVIES:
       return produce(state, (draft) => {
-        console.log(action);
         draft.movies = action.payload;
       });
     default:

@@ -27,10 +27,6 @@ export const fetchMovies = (arr) => (dispatch) => {
   });
 }
 
-// export const showLists = (num) => () => {
-//   fetchCharacter(num).then((res) => console.log(res));
-// };
-
 export const setCharacter = (num) => (dispatch) => {
   dispatch(storeCharacter(num));
   fetchCharacter(num)(dispatch);

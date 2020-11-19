@@ -11,7 +11,6 @@ const Wrapper = (props) => {
     details,
     movies
   } = props;
-  console.log(props);
 
   return (
     <Grid className="App" container spacing={2}>
