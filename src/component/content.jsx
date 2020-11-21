@@ -9,46 +9,47 @@ const Content = ({ movies = [], details = [], lastMovie = false }) => {
 
   if (lastMovie) {
     return (
-      <>
-        <div>
+      <Grid container>
+        <Grid item xs={12}>
           <Typography component="p" variant="body2">Last Appear on</Typography>
-        </div>
-        <Grid container spacing={1}>
-          {
-            lastMovieSelector ? (
-              <Grid item xs={12}>
-                <Typography component="h5" variant="h5">
-                  {lastMovieSelector.title}
-                </Typography>
-                <Typography component="p" variant="body1">
-                  on {lastMovieSelector.release_date}
-                </Typography>
-              </Grid>
-            ) : (
-              <Grid item xs={12}>
-                <Typography component="h3" variant="h3">
-                  <Skeleton animation="wave" />
-                </Typography>
-                <Typography component="p" variant="body1">
-                  <Skeleton animation="wave" />
-                </Typography>
-              </Grid>
-            )
-          }
-          
         </Grid>
-      </>
+        <Grid item xs={12}>
+          <Grid container spacing={1}>
+            {
+              lastMovieSelector ? (
+                <Grid item xs={12}>
+                  <Typography component="h5" variant="h5">
+                    {lastMovieSelector.title}
+                  </Typography>
+                  <Typography component="p" variant="body1">
+                    on {lastMovieSelector.release_date}
+                  </Typography>
+                </Grid>
+              ) : (
+                <Grid item xs={12}>
+                  <Typography component="h3" variant="h3">
+                    <Skeleton animation="wave" />
+                  </Typography>
+                  <Typography component="p" variant="body1">
+                    <Skeleton animation="wave" />
+                  </Typography>
+                </Grid>
+              )
+            }
+          </Grid>
+        </Grid>
+      </Grid>
     )
   }
   
   return (
-    <>
-      <div>
+    <Grid container>
+      <Grid item xs={12}>
         <Typography component="p" variant="body2">Movie List</Typography>
-      </div>
-      <Grid container spacing={1}>
-        {!movies.length && (
-          <>
+      </Grid>
+      <Grid item xs={12}>
+        <Grid container spacing={1}>
+          {!movies.length && (
             <Grid item xs={12}>
               <Typography component="h3" variant="h3">
                 <Skeleton animation="wave" />
@@ -57,31 +58,31 @@ const Content = ({ movies = [], details = [], lastMovie = false }) => {
                 <Skeleton animation="wave" />
               </Typography>
             </Grid>
-          </>
-        )}
-        {movies.map((movie, index) =>
-          details[index] ? (
-            <Grid item key={movie} xs={12}>
-              <Typography component="h5" variant="h5">
-                {details[index].title}
-              </Typography>
-              <Typography component="p" variant="body1">
-                Directed by: {details[index].director}
-              </Typography>
-            </Grid>
-          ) : (
-            <Grid key={movie} xs={12}>
-              <Typography component="h3" variant="h3">
-                <Skeleton animation="wave" />
-              </Typography>
-              <Typography component="p" variant="body1">
-                <Skeleton animation="wave" />
-              </Typography>
-            </Grid>
-          )
-        )}
+          )}
+          {movies.map((movie, index) =>
+            details[index] ? (
+              <Grid item key={movie} xs={12}>
+                <Typography component="h5" variant="h5">
+                  {details[index].title}
+                </Typography>
+                <Typography component="p" variant="body1">
+                  Directed by: {details[index].director}
+                </Typography>
+              </Grid>
+            ) : (
+              <Grid key={movie} xs={12}>
+                <Typography component="h3" variant="h3">
+                  <Skeleton animation="wave" />
+                </Typography>
+                <Typography component="p" variant="body1">
+                  <Skeleton animation="wave" />
+                </Typography>
+              </Grid>
+            )
+          )}
+        </Grid>
       </Grid>
-    </>
+    </Grid>
   );
 };
 
