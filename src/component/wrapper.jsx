@@ -1,5 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
 import Selector from './selector';
 import Content from './content';
@@ -15,7 +16,9 @@ const Wrapper = (props) => {
   return (
     <Grid className="App" container spacing={2}>
       <Grid item xs={12}>
-        StarWars
+        <Typography component="h4" variant="h4">
+          StarWars
+        </Typography>
       </Grid>
       <Grid item xs={12}>
         <Selector 

@@ -34,6 +34,9 @@ const darkTheme = createMuiTheme({
     ].join(','),
   },
   palette: {
+    primary: {
+      main: "#e9d700"
+    },
     type: "dark"
   }
 });
