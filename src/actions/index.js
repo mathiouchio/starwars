@@ -1,5 +1,6 @@
 import { createAction } from 'redux-actions';
 
+import api from "./api";
 import { CHARACTER, MOVIES, DETAILS } from "../constants";
 
 const storeCharacter = createAction(CHARACTER);
@@ -11,8 +12,7 @@ const fetchMovies = (arr) => (dispatch) => {
     const url = new URL(movie);
     url.protocol = "https:"
 
-    fetch(url)
-      .then(response => response.json())
+    api.get(url)
       .then(data => {
         dispatch(storeDetails({ index, data }));
       });
@@ -22,8 +22,7 @@ const fetchMovies = (arr) => (dispatch) => {
 const fetchCharacter = (num) => (dispatch) => {
   dispatch(storeCharacter(num));
 
-  return fetch(`https://swapi.dev/api/people/${num}/`)
-    .then(response => response.json())
+  return api.get(`https://swapi.dev/api/people/${num}/`)
     .then(data => {
       dispatch(storeMovies(data.films));
       dispatch(fetchMovies(data.films));
