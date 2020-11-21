@@ -6,15 +6,7 @@ const storeCharacter = createAction(CHARACTER);
 const storeMovies = createAction(MOVIES);
 const storeDetails = createAction(DETAILS);
 
-const fetchCharacter = (num) => (dispatch) =>
-  fetch(`https://swapi.dev/api/people/${num}/`)
-    .then(response => response.json())
-    .then(data => {
-      dispatch(storeMovies(data.films));
-      dispatch(fetchMovies(data.films));
-    });
-
-export const fetchMovies = (arr) => (dispatch) => {
+const fetchMovies = (arr) => (dispatch) => {
   arr.forEach((movie, index) => {
     const url = new URL(movie);
     url.protocol = "https:"
@@ -25,10 +17,18 @@ export const fetchMovies = (arr) => (dispatch) => {
         dispatch(storeDetails({index, data}));
       });
   });
-}
+};
 
-export const setCharacter = (num) => (dispatch) => {
+const fetchCharacter = (num) => (dispatch) => {
   dispatch(storeCharacter(num));
-  fetchCharacter(num)(dispatch);
-}
+
+  return fetch(`https://swapi.dev/api/people/${num}/`)
+    .then(response => response.json())
+    .then(data => {
+      dispatch(storeMovies(data.films));
+      dispatch(fetchMovies(data.films));
+    });
+};
+
+export const setCharacter = fetchCharacter;
 
