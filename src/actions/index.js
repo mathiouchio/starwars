@@ -14,7 +14,7 @@ const fetchMovies = (arr) => (dispatch) => {
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        dispatch(storeDetails({index, data}));
+        dispatch(storeDetails({ index, data }));
       });
   });
 };

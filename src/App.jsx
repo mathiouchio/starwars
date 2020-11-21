@@ -7,7 +7,7 @@ import thunk from "redux-thunk";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import reducer from './reducers'
 
-import Component from "./Component";
+import Component from "./component";
 
 const store = createStore(reducer, applyMiddleware(thunk))
 
