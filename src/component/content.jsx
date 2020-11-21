@@ -16,27 +16,23 @@ const Content = ({ movies = [], details = [], lastMovie = false }) => {
         <Grid container spacing={1}>
           {
             lastMovieSelector ? (
-              <>
-                <Grid item xs={12}>
-                  <Typography component="h5" variant="h5">
-                    {lastMovieSelector.title}
-                  </Typography>
-                  <Typography component="p" variant="body1">
-                    on {lastMovieSelector.release_date}
-                  </Typography>
-                </Grid>
-              </>
+              <Grid item xs={12}>
+                <Typography component="h5" variant="h5">
+                  {lastMovieSelector.title}
+                </Typography>
+                <Typography component="p" variant="body1">
+                  on {lastMovieSelector.release_date}
+                </Typography>
+              </Grid>
             ) : (
-              <>
-                <Grid item xs={12}>
-                  <Typography component="h3" variant="h3">
-                    <Skeleton animation="wave" />
-                  </Typography>
-                  <Typography component="p" variant="body1">
-                    <Skeleton animation="wave" />
-                  </Typography>
-                </Grid>
-              </>
+              <Grid item xs={12}>
+                <Typography component="h3" variant="h3">
+                  <Skeleton animation="wave" />
+                </Typography>
+                <Typography component="p" variant="body1">
+                  <Skeleton animation="wave" />
+                </Typography>
+              </Grid>
             )
           }
           
