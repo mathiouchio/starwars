@@ -2,6 +2,10 @@
 
 In a galaxy far far away...
 
-### Running
+### Development
 
 yarn install && yarn start
+
+### Live
+
+[matheus.li](https://matheus.li/starwars/)
